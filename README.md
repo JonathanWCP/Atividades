@@ -8,4 +8,9 @@
   -Processos <br />
   -Threads <br />
   -JFrame <br />
-	-Semaphore <br />
+  -Semaphore <br />
+  
+<i>Observações: Nenhuma atividade inclui DIRETAMENTE os conceitos ou programação a seguir: <br />
+	-Orientação à Objeto <br />
+	-Encapsulamento <br />
+	-Herança <br /> <i/>
