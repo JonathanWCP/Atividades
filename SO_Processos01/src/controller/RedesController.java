@@ -61,36 +61,30 @@ public class RedesController {
 				InputStreamReader leitor = new InputStreamReader(fluxo);
 				BufferedReader buffer = new BufferedReader(leitor);
 				String linha = buffer.readLine();
-				int posicaoInicial = 43, posicaoFinal = 44; // posicao dos valores do ping
+				int posicaoInicial = 44, posicaoFinal = 47; // posicao dos valores do ping
 				System.out.print("\nAguarde...");
 				while (linha != null) {
-					/* System.out.println(linha); linha para imprimir o ping completo */
+/*					 System.out.println(linha); //imprime o ping  */
 					if (linha.contains("Esgotado o tempo limite do pedido.")) {
 						System.out.println("Pacote perdido");
-						cont--; // contador para arrumar os numeros N vezes
 						linha = buffer.readLine();
 					} else {
 						armazenaLinha = linha;
 						int tamanhoLinha = armazenaLinha.length(); // int contendo o tamanho de cada linha
-						if (tamanhoLinha == 47 || tamanhoLinha == 54 && linha.contains("Resposta")) {
+						if (tamanhoLinha == 49 && linha.contains("=")) {
 							valorFinal += Integer.parseInt(armazenaLinha.substring(posicaoInicial, posicaoFinal));
-						} else if (tamanhoLinha == 48 || tamanhoLinha == 55) {
-							posicaoFinal += 1;
-							valorFinal += Integer.parseInt(armazenaLinha.substring(posicaoInicial, posicaoFinal));
-							posicaoFinal -= 1;
-						} else if (tamanhoLinha == 49) {
-							posicaoFinal += 2;
-							valorFinal += Integer.parseInt(armazenaLinha.substring(posicaoInicial, posicaoFinal));
-							posicaoFinal -= 2;
+						} else if (tamanhoLinha == 50 && linha.contains("=")) {
+							valorFinal += Integer.parseInt(armazenaLinha.substring(posicaoInicial+1, posicaoFinal+1));
+						} else if (tamanhoLinha == 48 && linha.contains("=")) {
+							valorFinal += Integer.parseInt(armazenaLinha.substring(posicaoInicial-1, posicaoFinal-1));
 						}
 						System.out.print(".");
-//					System.out.println(linha.length());
+/*					System.out.println(linha.length()); //imprime tamanho de cada linha */
 						linha = buffer.readLine();
 					}
 				}
 				if (valorFinal > 0) { // condicao para um cenario em que nao ha conexao com a internet
-					valorFinal = valorFinal / cont; // calculo de media do ping
-					System.out.println(" A media do ping e de " + valorFinal + "ms!");
+					System.out.println("\nA media do ping: " + valorFinal + "ms!");
 				} else {
 					System.out.println(
 							"\nErro! Todos os pacotes foram perdidos! \nVerifique sua conexao com a internet e tente novamente.");
@@ -128,7 +122,7 @@ public class RedesController {
 					}
 					linha = buffer.readLine(); // usa o buffer para ler uma linha e joga na mesma
 				}
-					System.out.println(" A media do ping: " + valorFinal + "ms!");
+					System.out.println("\nA media do ping: " + valorFinal + "ms!");
 				 	if (valorFinal == 0) {
 					System.out.println(
 							"\nErro! Todos os pacotes foram perdidos! \nVerifique sua conexao com a internet e tente novamente.");
