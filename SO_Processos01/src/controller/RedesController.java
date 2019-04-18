@@ -100,8 +100,7 @@ public class RedesController {
 				e.printStackTrace();
 			}
 		} else if (so.contains("Linux")) {
-			int cont = 10;
-			int valorFinal = 0;
+			double valorFinal = 0;
 			String armazenaLinha = ""; // armazenara todas as linhas do ping mas em String e sem buffer
 			String sitePing = "ping -c 10 www.google.com.br"; // variavel com o site a ser testado
 			System.out.println("\n----- Teste de Ping -----\n"
@@ -112,24 +111,25 @@ public class RedesController {
 				InputStreamReader leitor = new InputStreamReader(fluxo);
 				BufferedReader buffer = new BufferedReader(leitor);
 				String linha = buffer.readLine();
-				int posicaoInicial = 80, posicaoFinal = 84; // posicao dos valores do ping
+				int posicaoInicial = 31, posicaoFinal = 37; // posicao dos valores do ping
 				System.out.print("\nAguarde...");
 				while (linha != null) {
 //					System.out.println(linha);	//imprimir o ping 
-//					System.out.println(tamanhoLinha);	//imprimir o tamanho de cada linha do ping
 					armazenaLinha = linha;
 					int tamanhoLinha = linha.length();
+/*					System.out.println(tamanhoLinha);	//imprime o tamanho de cada linha do ping */
 					System.out.print(".");
-					if (tamanhoLinha == 87) {
-						valorFinal += Double.parseDouble(armazenaLinha.substring(posicaoInicial, posicaoFinal));
-//						System.out.println(valorFinal);
+					if (tamanhoLinha == 56) {
+						valorFinal = Double.parseDouble(armazenaLinha.substring(posicaoInicial, posicaoFinal));
+					} else if(tamanhoLinha == 57) {
+						valorFinal = Double.parseDouble(armazenaLinha.substring(posicaoInicial+1, posicaoFinal+1));
+					} else if (tamanhoLinha == 55) {
+						valorFinal = Double.parseDouble(armazenaLinha.substring(posicaoInicial-1, posicaoFinal-1));
 					}
 					linha = buffer.readLine(); // usa o buffer para ler uma linha e joga na mesma
 				}
-				if (valorFinal > 0) { // condicao para um cenario em que nao ha conexao com a internet
-					valorFinal = valorFinal / cont; // calculo de media do ping
-					System.out.println(" A media do ping e de " + valorFinal + "ms!");
-				} else {
+					System.out.println(" A media do ping: " + valorFinal + "ms!");
+				 	if (valorFinal == 0) {
 					System.out.println(
 							"\nErro! Todos os pacotes foram perdidos! \nVerifique sua conexao com a internet e tente novamente.");
 				}
