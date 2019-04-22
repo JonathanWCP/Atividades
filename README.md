@@ -10,7 +10,7 @@
   -JFrame <br />
   -Semaphore <br />
   
-<i>Observações: Nenhuma atividade inclui DIRETAMENTE os conceitos ou programação a seguir: <br />
+<i>Observações: Nenhuma atividade inclui DIRETAMENTE os conceitos ou padrões de desenvolvimento a seguir: <br />
 	-Orientação à Objeto <br />
 	-Encapsulamento <br />
 	-Herança <br /> <i/>
