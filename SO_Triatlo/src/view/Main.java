@@ -28,8 +28,8 @@ public class Main {
 	public static void main(String[] args) {
 		Semaphore permissoes = new Semaphore(5);
 		for (int id = 1; id < 26; id++) {
-			Thread gincana = new Triatlo(id,permissoes);
-			gincana.start();
+			Thread circuito = new Triatlo(id, permissoes);
+			circuito.start();
 		}
 	}
 

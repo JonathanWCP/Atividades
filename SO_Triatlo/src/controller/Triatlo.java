@@ -27,16 +27,16 @@ public class Triatlo extends Thread {
 	private Semaphore semaforo;
 	private final int CORRIDA = 3000;
 	private final int CICLISMO = 5000;
-	private int pont = 0;
-	private static int Colocacao = 250;
+	private int pontosTiro = 0;
+	private static int pontosChegada = 250;
 	private static int lugar = 0;
-	private static int[][] podio = new int[26][2];
-	
-	public Triatlo (int atleta, Semaphore semaforo) {
+	private static int[][] pontuacaoFinal = new int[26][2];
+
+	public Triatlo(int atleta, Semaphore semaforo) {
 		this.atleta = atleta;
 		this.semaforo = semaforo;
 	}
-	
+
 	@Override
 	public void run() {
 		corrida();
@@ -54,33 +54,33 @@ public class Triatlo extends Thread {
 	}
 
 	private void ordenar() {
-		podio[0][1] = 9999; //a pontuacao no espaco 0 nunca será usado, sendo seu conteudo sempre maior q as demais para evitar trocas
-		for (int x = 0; x < podio.length; x++) {
-			for (int y = 1; y < podio.length-1; y++) {
-				if (podio[y][1] < podio[y+1][1]) {
-					int aux = podio[y][1];
-					podio[y][1] = podio[y+1][1];
-					podio[y+1][1] = aux;
-					
-					int aux1 = podio[y][0];
-					podio[y][0] = podio[y+1][0];
-					podio[y+1][0] = aux1;
+		pontuacaoFinal[0][1] = 9999; // espaco 0 nunca sera usado, valor alto para evitar trocas
+		for (int x = 0; x < pontuacaoFinal.length; x++) {
+			for (int y = 1; y < pontuacaoFinal.length - 1; y++) {
+				if (pontuacaoFinal[y][1] < pontuacaoFinal[y + 1][1]) {
+					int aux = pontuacaoFinal[y][1];
+					pontuacaoFinal[y][1] = pontuacaoFinal[y + 1][1];
+					pontuacaoFinal[y + 1][1] = aux;
+
+					int aux1 = pontuacaoFinal[y][0];
+					pontuacaoFinal[y][0] = pontuacaoFinal[y + 1][0];
+					pontuacaoFinal[y + 1][0] = aux1;
 				}
 			}
 		}
 		for (int i = 1; i < 26; i++) {
-			System.out.println("O Atleta#"+podio[i][0]+ " tem " +podio[i][1] +" pontos!");
+			System.out.println("O Atleta#" + pontuacaoFinal[i][0] + " tem " + pontuacaoFinal[i][1] + " pontos!");
 		}
 	}
 
 	private void chegada() {
 		int pontuacaoTotal = 0;
-		pontuacaoTotal = Colocacao + pont;
-		Colocacao = Colocacao - 10;
-		System.out.println("O Atleta#" + atleta+ " chegou em " + ++lugar + "º lugar!");
-		podio[lugar][0] = atleta;
-		podio[lugar][1] = pontuacaoTotal;
-		
+		pontuacaoTotal = pontosChegada + pontosTiro;
+		pontosChegada = pontosChegada - 10;
+		System.out.println("O Atleta#" + atleta + " chegou em " + (++lugar) + "º lugar!");
+		pontuacaoFinal[lugar][0] = atleta;
+		pontuacaoFinal[lugar][1] = pontuacaoTotal;
+
 		if (lugar == 25) {
 			ordenar();
 		}
@@ -89,7 +89,7 @@ public class Triatlo extends Thread {
 	private void ciclismo() {
 		int distanciaPercorrida = 0;
 		while (distanciaPercorrida < CICLISMO) {
-			distanciaPercorrida += (int)(Math.random()*11)+30;
+			distanciaPercorrida += (int) (Math.random() * 11) + 30;
 			System.out.printf("O Atleta#%d andou %d metros no ciclismo!\n", atleta, distanciaPercorrida);
 			try {
 				Thread.sleep(40);
@@ -102,15 +102,15 @@ public class Triatlo extends Thread {
 	private void tiroAlvo() {
 		int tiro = 0, tempo = 0;
 		while (tiro < 3) {
-			tempo = (int)(Math.random()*2600)+500;
+			tempo = (int) (Math.random() * 2600) + 500;
 			try {
 				Thread.sleep(tempo);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			} finally {
 				tiro++;
-				pont += (int)(Math.random()*11);
-				System.out.printf("O Alteta#%d deu %d tiro(s), pontuacao: %d\n", atleta, tiro, pont);
+				pontosTiro += (int) (Math.random() * 11);
+				System.out.printf("O Alteta#%d deu %d tiro(s), pontuacao: %d\n", atleta, tiro, pontosTiro);
 			}
 		}
 	}
@@ -118,7 +118,7 @@ public class Triatlo extends Thread {
 	private void corrida() {
 		int distanciaPercorrida = 0;
 		while (distanciaPercorrida < CORRIDA) {
-			distanciaPercorrida += (int)(Math.random()*6)+20;
+			distanciaPercorrida += (int) (Math.random() * 6) + 20;
 			System.out.printf("O Atleta#%d andou %d metros\n", atleta, distanciaPercorrida);
 			try {
 				Thread.sleep(30);
