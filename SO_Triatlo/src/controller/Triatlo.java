@@ -54,6 +54,7 @@ public class Triatlo extends Thread {
 	}
 
 	private void ordenar() {
+		podio[0][1] = 9999; //a pontuacao no espaco 0 nunca será usado, sendo seu conteudo sempre maior q as demais para evitar trocas
 		for (int x = 0; x < podio.length; x++) {
 			for (int y = 1; y < podio.length-1; y++) {
 				if (podio[y][1] < podio[y+1][1]) {
@@ -68,7 +69,7 @@ public class Triatlo extends Thread {
 			}
 		}
 		for (int i = 1; i < 26; i++) {
-			System.out.println("O atleta "+podio[i][0]+ " tem " +podio[i][1] +" pontos\n \n");
+			System.out.println("O Atleta#"+podio[i][0]+ " tem " +podio[i][1] +" pontos!");
 		}
 	}
 
@@ -76,7 +77,7 @@ public class Triatlo extends Thread {
 		int pontuacaoTotal = 0;
 		pontuacaoTotal = Colocacao + pont;
 		Colocacao = Colocacao - 10;
-		System.out.println("O Atleta" + atleta+ " chegou em " + ++lugar + "º lugar\n");
+		System.out.println("O Atleta#" + atleta+ " chegou em " + ++lugar + "º lugar!");
 		podio[lugar][0] = atleta;
 		podio[lugar][1] = pontuacaoTotal;
 		
