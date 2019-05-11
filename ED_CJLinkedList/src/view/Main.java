@@ -1,4 +1,12 @@
-/*Objetivo:    Classe com menu principal com os metodos da classe CJLinkedList
+/*Objetivo:    	Implemente sobre a lista simples circular os seguintes metodos:
+				isEmpty
+				getFirst
+				getLast
+				insertFirst
+				insertLast
+				removeFirst
+				removeLast
+				show
 
                 Este codigo fonte sera salvo no arquivo Main.java
    Programador: Jonathan Willian Castro Pinheiro

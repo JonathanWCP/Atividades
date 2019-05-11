@@ -1,4 +1,4 @@
-/*Objetivo:    Classe com construtor do Node 
+/*Objetivo:    	Classe com construtor do Node 
 
                 Este codigo fonte sera salvo no arquivo Node.java
    Programador: Jonathan Willian Castro Pinheiro

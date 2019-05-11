@@ -1,4 +1,4 @@
-/*Objetivo:    Classe contendo metodos para adicionar, remover e alterar uma lista circular dupla. 
+/*Objetivo:    	Classe contendo metodos para adicionar, remover e alterar uma lista circular dupla. 
 
                 Este codigo fonte sera salvo no arquivo CJLinkedList.java
    Programador: Jonathan Willian Castro Pinheiro
