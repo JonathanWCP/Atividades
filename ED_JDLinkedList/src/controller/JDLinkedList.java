@@ -47,7 +47,7 @@ public class JDLinkedList {
 			head.setPrevious(novoNode);
 			head = novoNode;
 			size++;
-			
+
 		}
 	}
 
@@ -110,6 +110,27 @@ public class JDLinkedList {
 			}
 			System.out.println("\n");
 		}
+	}
+
+	public Node removeAfter(int pos) throws UnderflowException {
+		int posList = 1;
+		Node current = head;
+		if (isEmpty()) {
+			throw new UnderflowException();
+		} else if (pos == posList) {
+			System.out.println("A posicao nao pode ser do mesmo tamanho da lista!");
+			return null;
+		} else {
+			while (posList != pos) {
+				posList++;
+				current = current.getNext();
+			}
+		}
+			Node removedItem = current.getNext();
+			removedItem.getNext().setPrevious(current);
+			current.setNext(removedItem.getNext());
+		
+		return removedItem;
 	}
 
 }

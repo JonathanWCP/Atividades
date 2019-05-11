@@ -49,7 +49,6 @@ public class RedesController {
 
 	public void ping(String so) {
 		if (so.contains("Windows")) {
-			int cont = 10;
 			int valorFinal = 0;
 			String armazenaLinha = ""; // armazenara todas as linhas do ping mas em String e sem buffer
 			String sitePing = "ping -n 10 www.google.com.br"; // variavel com o site a ser testado

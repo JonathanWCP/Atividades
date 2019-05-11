@@ -43,7 +43,6 @@ public class PrintController extends Thread {
 	};
 	
 	public static void main(String[] args) {
-		PrintController print = new PrintController();
 		program1.start();
 		program2.start();
 		program3.start();
