@@ -72,6 +72,7 @@ public class Main {
 				} catch (UnderflowException e) {
 					e.printStackTrace();
 				}
+				break;
 
 			case 9:
 				System.exit(0);
