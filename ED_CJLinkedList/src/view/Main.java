@@ -27,23 +27,23 @@ public class Main {
 		CJLinkedList lista = new CJLinkedList();
 		while (opc != 10) {
 			opc = Integer.parseInt(JOptionPane.showInputDialog("----- MENU PRINCIPAL -----" 
-							+ "\n1 - Adicionar item no inicio (tail) " 
-							+ "\n2 - Adicionar item no final (head)"
+							+ "\n1 - Adicionar item no inicio (head) " 
+							+ "\n2 - Adicionar item no final (tail)"
 							+ "\n3 - Remover item do inicio" 
 							+ "\n4 - Remover item do final"
 							+ "\n5 - Verificar tamanho da lista" 
-							+ "\n6 - Verficiar se lista esta vazia"
+							+ "\n6 - Verificar se lista esta vazia"
 							+ "\n7 - Exibir lista" 
 							+ "\n8 - Coletar primeiro ou ultimo" 
 							+ "\n9 - Sair"));
 			switch (opc) {
 			case 1:
-				j = JOptionPane.showInputDialog("Digite o número para adicionar no inicio da lista");
+				j = JOptionPane.showInputDialog("Digite o numero para adicionar no inicio da lista");
 				lista.insertFirst(new Node(j));
 				break;
 
 			case 2:
-				j = JOptionPane.showInputDialog("Digite o número para adicionar no final da lista");
+				j = JOptionPane.showInputDialog("Digite o numero para adicionar no final da lista");
 				lista.insertLast(new Node(j));
 				break;
 
