@@ -1,5 +1,5 @@
 # Java & IDE's folders and files
-SO_Triatlo/bin
+SO_Triatlo/.project
 .vscode/*
 .metadata/*
 *.classpath
