@@ -127,10 +127,12 @@ public class JDLinkedList {
 			}
 		}
 			Node removedItem = current.getNext();
+			if (removedItem == tail) {
+				current.setNext(null);
+			} else {
 			removedItem.getNext().setPrevious(current);
 			current.setNext(removedItem.getNext());
-		
-		return removedItem;
+			}
+			return removedItem;
 	}
-
 }
