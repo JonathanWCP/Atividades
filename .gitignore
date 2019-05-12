@@ -1,11 +1,3 @@
-# Java & IDE's folders and files
-SO_Triatlo/.project
-.vscode/*
-.metadata/*
-*.classpath
-*.settings
-*.project
-
 # Compiled class file
 *.class
 
