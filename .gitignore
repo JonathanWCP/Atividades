@@ -1,9 +1,9 @@
-target
 */bin/*
 .vscode/*
+*/.vscode/*
+*/.metadata/*
 .metadata/*
 *.settings
-*.classpath
 *.project
 # Compiled class file
 *.class
