@@ -1,7 +1,7 @@
 target
-*
-vscode/*
-metadata/*
+*/bin/*
+.vscode/*
+.metadata/*
 *.settings
 *.classpath
 *.project
