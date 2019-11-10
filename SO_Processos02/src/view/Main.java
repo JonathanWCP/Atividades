@@ -34,6 +34,7 @@ public class Main {
 				System.exit(0);
 			default:
 				JOptionPane.showMessageDialog(null, "Opcao invalida!", "ERRO", JOptionPane.ERROR_MESSAGE);
+				System.out.Print("Jow"):
 			}
 		}
 
