@@ -1,16 +1,12 @@
-# Estrutura de Dados
-  -Lista simplesmente encadeada (JLinkedList) <br />
-  -Lista duplamente encadeada (JDLinkedList) <br />
-  -Lista simplesmente encadeada circular (CJLinkedList) <br />
-  -Lista duplamente encadeada circular (CJDLinkedList) <br />
+# Data Structures
+  -Simple Linked List (JLinkedList) <br />
+  -Double Linked List (JDLinkedList) <br />
+  -Simple Circular Linked List (CJLinkedList) <br />
+  -Double Circular Linked List (CJDLinkedList) <br />
   
-# Sistema Operacional 1
+# Operating System 1
   -Processos <br />
   -Threads <br />
   -JFrame <br />
   -Semaphore <br />
-  
-<i>Observações: Nenhuma atividade inclui DIRETAMENTE os conceitos ou padrões de desenvolvimento a seguir: <br />
-	-Orientação à Objeto <br />
-	-Encapsulamento <br />
-	-Herança <br /> <i/>
+
